@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>30 Days Of React Challenge</title>
+</head>
+
+<body>
+    <div class="root"></div>
+
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script type="text/babel">
+        console.log(React)
+        const root = document.querySelector('.root')
+
+        //style 
+        const headerStyle = {border:'2px solid orange', backgroundColor:'#ccc', display:'flex', flexDirection:'column', justifyContent:'center', alignItems:'center' }
+        const mainStyle ={padding:'25px', backgroundColor:'rgba(0,0,0,0.1)'}
+        const footerStyle={padding:'5px 0', border:'2px solid orange', backgroundColor:'#ccc', display:'flex', justifyContent:'center', alignItems:'center' }
+        
+        //JSX Element header
+        const header = (
+            <header style={headerStyle}>
+                <h1>30 Days Of React Challenge</h1>
+                <h3>Author : Mert Kaya</h3>
+                <h4>21.06.2022</h4>
+            </header>
+        )
+
+        //JSX Element main
+        const main = (
+            <main style={mainStyle}>
+                <p>Prerequisite to get started react.js:</p>
+                <ul>
+                    <li>HTML</li>
+                    <li>CSS</li>
+                    <li>JavaScript</li>
+                </ul>
+            </main>
+        )
+
+        //JSX Element footer
+        const footer = (
+            <footer style={footerStyle}>
+                <p>Copyright 2022</p>
+            </footer>
+        )
+
+        //JSX Element app
+        const app = (
+            <div>
+                {header}
+                {main}
+                {footer}
+            </div>
+        )
+
+        // we render the JSX element using the ReactDOM package
+        // ReactDOM has the render method and the render method takes two argument
+        ReactDOM.render(app, root)
+        // or
+        //  ReactDOM.render([header, main, footer], root)
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            padding: 0;
+            margin: 0;
+        }
+
+        html,
+        body {
+            height: 100%;
+            line-height: 1.5;
+            font-family: 'Montserrat';
+            font-weight: 300;
+            color: black;
+        }
+
+        .root {
+            min-height: 100%;
+            position: relative;
+        }
+
+        .header-wrapper,
+        .main-wrapper,
+        .footer-wrapper {
+            width: 85%;
+            margin: auto;
+        }
+
+        .header-wrapper,
+        .main-wrapper {
+            padding: 10px;
+            margin: 2px auto;
+        }
+
+        h1 {
+            font-size: 70px;
+            font-weight: 300;
+        }
+
+        h2,
+        h3 {
+            font-weight: 300;
+        }
+
+        header {
+            background-color: #61dbfb;
+            padding: 10px;
+        }
+
+        main {
+            padding: 10px;
+            padding-bottom: 60px;
+            /* Height of the footer */
+        }
+
+        ul {
+            margin-left: 15px;
+        }
+
+        ul li {
+            list-style: none;
+        }
+
+        footer {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 60px;
+            /* Height of the footer */
+            background: #6cf;
+        }
+
+        .footer-wrapper {
+            font-weight: 400;
+            text-align: center;
+            line-height: 60px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="root"></div>
+
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script type="text/babel">
+        //root 
+        const root = document.querySelector('.root')
+
+        //dynamic content
+        const welcome = 'Welcome to 30 Days Of React'
+        const title = 'Getting Started React'
+        const subtitle = 'JavaScript Library'
+        const authorFirstName = 'Mert'
+        const authorLastName = 'Kaya'
+        const author = {
+            firstName: 'Mert',
+            lastName: 'Kaya'
+        }
+        const date = 'Jun 21, 2022'
+        const techs = ['HTML', 'CSS', 'JavaScript']
+
+        //JSX header
+        const header = (
+            <header>
+                <div className='header-wrapper'>
+                    <h1>{welcome}</h1>
+                    <h2>{title}</h2>
+                    <h3>{subtitle}</h3>
+                    <p>Instructor: {authorFirstName} {authorLastName}</p>
+                    <p>Instructor: {author.firstName} {author.lastName}</p>
+                    <small>Date: {date}</small>
+                </div>
+            </header>
+        )
+
+        const techsFormetted = techs.map(tech => <li key={tech}>{tech}</li>)
+
+        //JSX main
+        const main = (
+            <main>
+                <div className='main-wrapper'>
+                    <p>
+                        Prerequisite to get started{' '}
+                        <strong>
+                            <em>react.js</em>
+                        </strong>
+                        :
+                    </p>
+                    <ul>{techsFormetted}</ul>
+                </div>
+            </main>
+        )
+
+        //JSX footer
+        const footer = (
+            <footer>
+                <div className='footer-wrapper'>
+                    <p>Copyright 2022</p>
+                </div>
+            </footer>
+        )
+
+
+        //All JSX elements
+        const app = (
+            <div>
+                {header}
+                {main}
+                {footer}
+            </div>
+        )
+
+        //rooting
+        ReactDOM.render(app, root)
+    </script>
+</body>
+
+</html>
