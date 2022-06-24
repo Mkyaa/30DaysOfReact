@@ -1,0 +1,127 @@
+// import React from 'react'
+// import ReactDOM from 'react-dom'
+// import profilePic from './images/pp.jpg'
+
+// //Button Props
+// const showDate = time => {
+//     const months = ['January',
+//         'February',
+//         'March',
+//         'April',
+//         'May',
+//         'June',
+//         'July',
+//         'August',
+//         'September',
+//         'October',
+//         'November',
+//         'December']
+
+//     const month = months[time.getMonth()].slice(0, 3)
+//     const year = time.getFullYear()
+//     const date = time.getDate()
+//     return `${month} ${date}, ${year}`
+// }
+
+
+// //
+
+// //Component
+
+// //Header
+// const Header = ({ data: {
+//     welcome,
+//     title,
+//     subtitle,
+//     author: { firstName, lastName },
+//     date
+// } }) => {
+//     return (
+//         <div className='header-wrapper'>
+//             <h1>{welcome}</h1>
+//             <h2>{title}</h2>
+//             <h3>{subtitle}</h3>
+//             <p>{firstName} {lastName}</p>
+//             <small>{showDate(date)}</small>
+//         </div>
+//     )
+// }
+
+// //Techlist
+// const TechList = ({ techs }) => {
+//     const techList = techs.map(tech => <li key={tech}>{tech}</li>)
+//     return techList
+// }
+
+// //UserCard
+// const UserCard = ({ user: { firstName, lastName, image } }) => {
+//     return (
+//         <div className='user-card'>
+//             <img src={image} alt={firstName}></img>
+//             <p>{firstName} {lastName}</p>
+//         </div>
+//     )
+// }
+
+// //Button
+// const Button = ({ text, onClick }) => <button onClick={onClick}>{text}</button>
+
+
+// const Main = ({ user, techs, readableTime }) => {
+//     return (
+//         <main>
+//             <div className='main-wrapper'>
+//                 <p>Prerequisite to get started react.js:</p>
+//                 <ul>
+//                     <TechList techs={techs} />
+//                 </ul>
+//                 <UserCard user={user} />
+//                 <Button text='Show Date' onClick={readableTime} />
+//             </div>
+//         </main>
+//     )
+// }
+
+
+// const Footer = ({ copyRight }) => {
+//     return (
+//         <footer>
+//             <div className='footer-wrapper'>
+//                 <p>Copyright {copyRight.getFullYear()}</p>
+//             </div>
+//         </footer>
+//     )
+// }
+
+
+// //App Component
+
+// const App = () => {
+//     const data = {
+//         welcome: 'Welcome to 30 Days Of React',
+//         title: 'Getting Started React',
+//         subtitle: 'JavaScript Library',
+//         author: {
+//             firstName: 'Mert',
+//             lastName: 'Kaya',
+//         },
+//         date: new Date(), // date needs to be formatted to a human readable format
+//     }
+//     const date = new Date()
+//     const techs = ['HTML', 'CSS', 'JS', 'Scss', 'Bootstrap', 'React']
+//     const user = { ...data.author, image: profilePic }
+
+//     const readableTime = () => {
+//         alert(showDate(new Date()))
+//     }
+
+//     return (
+//         <div className='app'>
+//             <Header data={data} />
+//             <Main user={user} techs={techs} readableTime={readableTime} />
+//             <Footer copyRight={date} />
+//         </div>
+//     )
+// }
+// const rootElement = document.getElementById('root')
+// ReactDOM.render(<App />, rootElement)

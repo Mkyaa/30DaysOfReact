@@ -1,0 +1,120 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+html,
+body {
+    height: 100%;
+    line-height: 1.5;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: black;
+}
+.root {
+    min-height: 100%;
+    position: relative;
+}
+.app{
+    width: 100%;
+}
+
+/* exercises1 Style */
+/* .sub-form{
+    margin: 5px auto;
+    width: 95%;
+    height: 30vh;
+    background-color: #c2e6f4;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 20px;
+}
+.sub-form h1 {
+    margin: 20px 0;
+    font-size: 3rem;
+    letter-spacing: 2px;
+    font-weight: normal;
+}
+.sub-form p {
+    margin-bottom: 1rem;
+    letter-spacing: 1px;
+}
+
+.input-container {
+    padding: 5px 0;
+    margin-bottom: 20px;
+}
+
+.input-container input {
+    margin: 0 5px;
+    height: 40px;
+    border-radius: 2px;
+    border: none;
+    padding: 5px 10px;
+    letter-spacing: 0.3px;
+}
+
+button {
+    background-color: #f37474;
+    border: none;
+    padding: 10px 100px;
+    color: #fff;
+    border-radius: 5px;
+}
+button:hover{
+    background-color: rgba(243,116,116, 0.9);
+} */
+
+/* exercises2 Style */
+ /* .hexa-wrapper{
+    width: 95%;
+    margin: 10px auto;
+ }
+ .hexa-wrapper div {
+    margin: 2px 0;
+    padding: 20px 0;
+    color: #fff;
+    text-align: center; 
+    font-size: 16px;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+ } */
+
+ /* exercises3 Style */
+ .user-card{
+    width: 95%;
+    display: flex;
+    flex-direction: column;
+    margin: 20px auto;
+}
+.user-card img{
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+.user-card h4{
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-top: 1rem;
+    letter-spacing: 2px;
+}
+.user-card p{
+    font-size: 0.8rem;
+    margin: 1rem 0;
+    color:rgba(0,0,0,0.7);
+}
+
+.user-card ul{
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+}
+.user-card ul li{
+    padding: 5px 10px;
+    border-radius: 5px;
+    background-color: #2acfcf;
+    color: #fff;
+    margin:5px;
+}
