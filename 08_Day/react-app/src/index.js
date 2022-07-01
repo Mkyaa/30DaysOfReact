@@ -1,14 +1,15 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import profPic from './images/pp.jpg'
 import './css/style.css'
+import { countriesData } from './countries'
 
+const countries = countriesData
 
 class Header extends React.Component {
     render() {
-        const { data :{title, subtitle, author: { firstName, lastName }}, headStyle } = this.props
+        const { data: { title, subtitle, author: { firstName, lastName } } } = this.props
         return (
-            <div className='header-wrapper' style={headStyle}>
+            <div className='header-wrapper' >
                 <h1>{title}</h1>
                 <h3>{subtitle}</h3>
                 <h5>{firstName} {lastName}</h5>
@@ -17,36 +18,22 @@ class Header extends React.Component {
     }
 }
 
-const TechList = ({ techs }) => {
-    const techList = techs.map(tech => <li key={tech}>{tech}</li>)
-    return techList
-}
-
 const Button = ({ text, onClick }) => {
     return <button onClick={onClick}>{text}</button>
 }
 
-const CardList = ({ user: { firstName, lastName, job }, techs }) => {
-    return (
-        <div className='user-card'>
-            <img src={profPic} alt='prof-pic'></img>
-            <h3>{firstName.toUpperCase()} {lastName.toUpperCase()}</h3>
-            <p>{job}</p>
-            <h3>SKILLS</h3>
-            <ul>
-                <TechList techs={techs} />
-            </ul>
-        </div>
-    )
-}
-
 class Main extends React.Component {
     render() {
-        const { user, techs, changeBackground, mainStyle } = this.props
+        const { name, flag, capital, language, population, currency, changeCountry } = this.props
         return (
-            <div className='main-wrapper' style={mainStyle}>
-                <CardList user={user} techs={techs} />
-                <Button text='Change Bacground' onClick={changeBackground} />
+            <div className='main-wrapper' >
+                <img src={flag} alt='flag'></img>
+                <h3>{name}</h3>
+                <p><b>Capital :</b> {capital}</p>
+                <p><b>Language :</b> {language}</p>
+                <p><b>Population :</b> {population}</p>
+                <p><b>Currency :</b> {currency}</p>
+                <Button text='Change Counrty' onClick={changeCountry} />
             </div>
         )
     }
@@ -64,37 +51,32 @@ class Footer extends React.Component {
 
 class App extends React.Component {
     state = {
-        style: {
-            header: {
-                backgroundColor: '#2acfcf',
-                color: 'black'
-            },
-
-            main: {
-                backgroundColor: '#fff',
-                color: '#0f172a',
-                borderTop: '',
-                borderBottom: ''
-            }
-        }
+        name: 'Turkey',
+        flag: 'https://restcountries.eu/data/tur.svg',
+        capital: 'Ankara',
+        language: 'Turkish',
+        population: '78741053',
+        currency: 'Turkish lira'
     }
-    changeBackground = () => {
-        const bgDark = '#0f172a',
-            txtColorForDark = '#ccc',
-            bgLight = '#fff',
-            txtColorForLight = '#0f172a',
-            border = '1px solid #ccc',
-            bgHead ='#2acfcf'
-        const borderTop = this.state.style.main.borderTop === '' ? border : ''
-        const borderBottom = this.state.style.main.borderBottom === '' ? border : ''
-        const backgroundColor = this.state.style.main.backgroundColor === bgLight ? bgDark : bgLight
-        const color = this.state.style.main.color === txtColorForLight ? txtColorForDark : txtColorForLight
-        const bgHeadColor = this.state.style.header.backgroundColor === bgHead ? bgDark : bgHead
-        const headColor = this.state.style.header.color === 'black' ? 'white' : 'black'
-        return this.setState({ style: { header: { backgroundColor:bgHeadColor, color:headColor }, main: {backgroundColor:backgroundColor, color:color, borderTop:borderTop, borderBottom:borderBottom } } })
+    changeCountry = () => {
+        let name = this.state.name,
+            flag = this.state.flag,
+            capital = this.state.capital,
+            language = this.state.language,
+            population = this.state.population,
+            currency = this.state.currency
+        const index = Math.floor(Math.random() * countries.length)
+        const newCountry = countries[index]
+        console.log(index)
+        name = newCountry.name
+        flag = newCountry.flag
+        capital = newCountry.capital
+        language = newCountry.languages.join(', ')
+        population = newCountry.population
+        currency = newCountry.currency
+        return this.setState({ name, flag, capital, language, population, currency })
     }
     render() {
-        
         const data = {
             title: 'Welcome to 30 Days Of React',
             subtitle: 'Getting Started React',
@@ -104,17 +86,17 @@ class App extends React.Component {
                 job: 'Junior Frontend Developer'
             }
         }
-        const user = { ...data.author, profPic }
-        const techs = ['HTML', 'CSS', 'Javascript', 'Sass', 'Bootstrap', 'React']
-
         return (
             <div className='app' >
-                <Header data={data} headStyle={this.state.style.header} />
+                <Header data={data} />
                 <Main
-                    user={user}
-                    techs={techs}
-                    changeBackground={this.changeBackground}
-                    mainStyle={this.state.style.main}
+                    name={this.state.name}
+                    flag={this.state.flag}
+                    capital={this.state.capital}
+                    language={this.state.language}
+                    population={this.state.population}
+                    currency={this.state.currency}
+                    changeCountry={this.changeCountry}
                 />
                 <Footer />
             </div>
